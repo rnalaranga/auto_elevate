@@ -1,26 +1,97 @@
 @import "tailwindcss";
+@source "../../src/app";
+@source "../../src/components";
+
+@theme {
+  --color-background-primary: #000000;
+  --color-background-secondary: #0a0a0a;
+  --color-background-tertiary: #141414;
+  --color-accent: #D4AF37;
+  
+  --font-bebas: "Racing Sans One", sans-serif;
+  --font-grotesk: "Space Grotesk", sans-serif;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default to dark mode variables if no class is present, to prevent flash */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #141414;
+  --text-primary: #FFFFFF;
+  --text-secondary: #888888;
+  --accent: #D4AF37;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(25, 25, 25, 0.6);
+  --inverse-bg: #FFFFFF;
+  --inverse-text: #000000;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html.dark, [data-theme='dark'] {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #141414;
+  --text-primary: #FFFFFF;
+  --text-secondary: #888888;
+  --accent: #D4AF37;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(25, 25, 25, 0.6);
+  --inverse-bg: #FFFFFF;
+  --inverse-text: #000000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.light, [data-theme='light'] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --bg-tertiary: #EAEAEA;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --accent: #D4AF37;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --inverse-bg: #000000;
+  --inverse-text: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* Handled by Lenis */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
 }
+
+/* ─── CUSTOM SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+::selection { background: rgba(212, 175, 55, 0.2); color: #D4AF37; }
+
+/* ─── TYPOGRAPHY ─── */
+.font-bebas { font-family: 'Racing Sans One', sans-serif; }
+
+/* ─── NOISE OVERLAY ─── */
+.noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+/* ─── GALLERY MASONRY ─── */
+.masonry-grid { columns: 3; column-gap: 16px; }
+.masonry-item { break-inside: avoid; margin-bottom: 16px; position: relative; }
+@media (max-width: 1024px) { .masonry-grid { columns: 2; } }
+@media (max-width: 640px) { .masonry-grid { columns: 1; } }

@@ -1,0 +1,202 @@
+// src/lib/constants.ts
+
+export const COMPANY = {
+  name: 'AUTO ELEVATE',
+  tagline: 'Perfection Detailed',
+  description: 'The pinnacle of automotive detailing. Where every vehicle becomes a masterpiece.',
+  phone: '+1 (888) AUTO-ELV',
+  email: 'detail@autoelevate.com',
+  address: '2200 Luxury Lane, Beverly Hills, CA 90210',
+  instagram: '@autoelevate',
+  founded: '2018',
+};
+
+export const SERVICES = [
+  {
+    id: 'ceramic-coating',
+    title: 'Ceramic Coating',
+    subtitle: 'Ultimate Protection',
+    description: 'Professional-grade SiO₂ ceramic coatings that create an impenetrable hydrophobic layer. UV resistance, chemical resistance, and a mirror-like finish that lasts years.',
+    duration: '2–3 Days',
+    protection: '5–9 Years',
+    image: '/services/ceramic.jpg',
+    icon: 'Shield',
+    price: 'From Rs. 150,000',
+  },
+  {
+    id: 'ppf',
+    title: 'Paint Protection Film',
+    subtitle: 'Invisible Armor',
+    description: 'Optically clear, self-healing urethane film that protects your paint from rock chips, road debris, and environmental contaminants. Completely invisible.',
+    duration: '3–5 Days',
+    protection: '10 Years',
+    image: '/services/ppf.jpg',
+    icon: 'Layers',
+    price: 'From Rs. 450,000',
+  },
+  {
+    id: 'paint-correction',
+    title: 'Paint Correction',
+    subtitle: 'Flawless Surface',
+    description: 'Multi-stage machine polishing to eliminate swirl marks, fine scratches, water spots, and oxidation. We restore your paint to factory-perfect or better condition.',
+    duration: '1–3 Days',
+    protection: 'Lifetime',
+    image: '/services/correction.jpg',
+    icon: 'Sparkles',
+    price: 'From Rs. 85,000',
+  },
+  {
+    id: 'interior-detailing',
+    title: 'Interior Detailing',
+    subtitle: 'Cabin Perfection',
+    description: 'Deep cleaning and conditioning of every surface inside your vehicle. Leather treatment, fabric protection, dashboard detailing, and odor elimination.',
+    duration: '4–8 Hours',
+    protection: '6 Months',
+    image: '/services/interior.jpg',
+    icon: 'Star',
+    price: 'From Rs. 35,000',
+  },
+  {
+    id: 'exterior-detailing',
+    title: 'Exterior Detailing',
+    subtitle: 'Mirror Finish',
+    description: 'Complete exterior restoration including clay bar decontamination, paint cleansing, hand waxing, wheel detailing, and tire dressing.',
+    duration: '4–6 Hours',
+    protection: '3 Months',
+    image: '/services/exterior.jpg',
+    icon: 'Zap',
+    price: 'From Rs. 25,000',
+  },
+  {
+    id: 'engine-detailing',
+    title: 'Engine Detailing',
+    subtitle: 'Mechanical Beauty',
+    description: 'Careful degreasing, cleaning, and dressing of your engine bay. Remove built-up grime while protecting sensitive components for a showroom-ready engine.',
+    duration: '2–4 Hours',
+    protection: '6 Months',
+    image: '/services/engine.jpg',
+    icon: 'Settings',
+    price: 'From Rs. 15,000',
+  },
+  {
+    id: 'graphene-coating',
+    title: 'Graphene Coating',
+    subtitle: 'Next Generation',
+    description: 'The latest breakthrough in paint protection technology. Graphene-infused coatings provide superior hardness, heat dissipation, and water-beading performance.',
+    duration: '3–4 Days',
+    protection: '7–10 Years',
+    image: '/services/graphene.jpg',
+    icon: 'Atom',
+    price: 'From Rs. 185,000',
+  },
+  {
+    id: 'headlight-restoration',
+    title: 'Headlight Restoration',
+    subtitle: 'Crystal Clear',
+    description: 'Professional wet sanding and polishing removes oxidation and yellowing from plastic headlight lenses. Restore full light output and factory clarity.',
+    duration: '2–3 Hours',
+    protection: '2 Years',
+    image: '/services/headlights.jpg',
+    icon: 'Eye',
+    price: 'From Rs. 10,000',
+  },
+  {
+    id: 'window-tint',
+    title: 'Window Tint',
+    subtitle: 'Privacy & Protection',
+    description: 'Premium ceramic window film that blocks 99% of UV rays while reducing heat and glare. Multiple VLT options to suit your style and legal requirements.',
+    duration: '4–6 Hours',
+    protection: 'Lifetime',
+    image: '/services/tint.jpg',
+    icon: 'Sun',
+    price: 'From Rs. 45,000',
+  },
+];
+
+export const STATS = [
+  { label: 'Vehicles Detailed', value: 4800, suffix: '+' },
+  { label: 'Years of Excellence', value: 7, suffix: '' },
+  { label: 'Client Satisfaction', value: 99.8, suffix: '%' },
+  { label: 'Awards Won', value: 23, suffix: '' },
+];
+
+export const PROCESS_STEPS = [
+  {
+    step: '01',
+    title: 'Inspection',
+    description: 'Paint depth measurement, contamination analysis, and full vehicle assessment using professional lighting.',
+  },
+  {
+    step: '02',
+    title: 'Preparation',
+    description: 'Chemical decontamination, clay bar treatment, and surface preparation for the next stage.',
+  },
+  {
+    step: '03',
+    title: 'Correction',
+    description: 'Multi-stage machine polishing to eliminate defects and achieve a flawless paint surface.',
+  },
+  {
+    step: '04',
+    title: 'Protection',
+    description: 'Application of your chosen protective coating under controlled conditions.',
+  },
+  {
+    step: '05',
+    title: 'Final Finish',
+    description: 'Quality inspection, final touches, and delivery of your vehicle to the highest standard.',
+  },
+];
+
+export const TESTIMONIALS = [
+  {
+    name: 'Marcus Chen',
+    title: 'Owner, 2024 Ferrari SF90',
+    quote: 'The ceramic coating they applied to my SF90 is absolutely flawless. The team\'s attention to detail is unmatched — they treated my car better than the Ferrari dealership.',
+    rating: 5,
+    image: '/testimonials/1.jpg',
+  },
+  {
+    name: 'Victoria Hartwell',
+    title: 'Owner, McLaren 720S',
+    quote: 'I\'ve used detailers across three continents. Auto Elevate is in a different league. The PPF installation was invisible and the finish was mirror-perfect.',
+    rating: 5,
+    image: '/testimonials/2.jpg',
+  },
+  {
+    name: 'James Okafor',
+    title: 'Owner, Lamborghini Huracán',
+    quote: 'They performed a full paint correction and graphene coating on my Huracán. The results were absolutely cinematic. Best money I\'ve ever spent on my car.',
+    rating: 5,
+    image: '/testimonials/3.jpg',
+  },
+  {
+    name: 'Sophia Andersson',
+    title: 'Owner, Porsche 911 GT3 RS',
+    quote: 'Professional from start to finish. They documented every step and the results speak for themselves. My GT3 has never looked better.',
+    rating: 5,
+    image: '/testimonials/4.jpg',
+  },
+  {
+    name: 'David Kessler',
+    title: 'Owner, Bentley Continental GT',
+    quote: 'The interior detail they did was transformative. Old leather was conditioned perfectly, everything was immaculate. Exactly what a car like mine deserves.',
+    rating: 5,
+    image: '/testimonials/5.jpg',
+  },
+  {
+    name: 'Amir Rashidi',
+    title: 'Owner, Rolls-Royce Ghost',
+    quote: 'When you own a Ghost, standards are non-negotiable. Auto Elevate exceeded every expectation. The PPF on the front end is truly invisible.',
+    rating: 5,
+    image: '/testimonials/6.jpg',
+  },
+];
+
+export const NAV_LINKS = [
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Process', href: '#process' },
+  { label: 'Contact', href: '#contact' },
+];
