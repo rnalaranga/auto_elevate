@@ -65,7 +65,6 @@ export default function Process() {
                   y: { duration: 0.8, delay: i * 0.1 }
                 }}
                 style={{
-                  border: isActive ? '1px solid rgba(212,175,55,0.4)' : '1px solid rgba(255,255,255,0.05)',
                   boxShadow: isActive ? '0 20px 50px rgba(0,0,0,0.5)' : 'none'
                 }}
               >

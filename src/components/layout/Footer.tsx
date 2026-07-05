@@ -46,9 +46,14 @@ export default function Footer() {
       </div>
       
       <div className="ae-footer-bottom">
-        <p className="ae-footer-copy">
-          © {new Date().getFullYear()} {COMPANY.name}. All rights reserved. Crafted with precision.
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center', textAlign: 'center' }}>
+          <p className="ae-footer-copy">
+            © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
+          </p>
+          <p style={{ fontSize: 11, color: 'var(--gray)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+            Designed and Developed by <span style={{ color: 'var(--gold)', fontWeight: 700 }}>RASHITHA NALARANGA</span>
+          </p>
+        </div>
         <p style={{ fontSize: 10, color: 'var(--gray)', letterSpacing: '0.1em' }}>
           {COMPANY.address} • {COMPANY.phone}
         </p>

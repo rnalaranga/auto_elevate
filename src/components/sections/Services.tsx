@@ -52,9 +52,6 @@ export default function Services() {
                   e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
                 }}
                 className="services-panel"
-                style={{ 
-                  border: isActive ? '1px solid var(--gold)' : '1px solid transparent'
-                }}
                 animate={{ 
                   flex: isActive ? 5 : 1,
                   opacity: 1

@@ -24,8 +24,8 @@ export default function Hero() {
             style={{ 
               width: '100%', 
               height: '100%', 
-              maxWidth: '1800px',
-              objectFit: 'contain', 
+              objectFit: 'cover',
+              objectPosition: '70% center',
               mixBlendMode: 'screen',
               filter: 'contrast(1.3) brightness(0.8)',
               y 
@@ -40,23 +40,22 @@ export default function Hero() {
 
       <div className="ae-hero-content">
         <motion.div
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 32 }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 16, marginBottom: 32 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -30 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="ae-eyebrow-line" />
           <span className="ae-eyebrow-text">Perfection Detailed</span>
-          <div className="ae-eyebrow-line reverse" />
+          <div className="ae-eyebrow-line" style={{ width: '80px' }} />
         </motion.div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }}>
           {['UNRIVALED', 'PRECISION', 'REFINED'].map((word, i) => (
             <motion.span
               key={word}
               className={`ae-hero-word${i === 1 ? ' gold' : ''}`}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -50 }}
               transition={{ duration: 0.8, delay: 0.3 + i * 0.15 }}
             >
               {word}
@@ -66,8 +65,8 @@ export default function Hero() {
 
         <motion.p
           className="ae-hero-subtitle"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -30 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
           Elevate your vehicle to masterpiece status. The world's finest ceramic coatings and paint correction for distinguished automobiles.
@@ -75,8 +74,8 @@ export default function Hero() {
 
         <motion.div
           className="ae-hero-btns"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -30 }}
           transition={{ duration: 0.8, delay: 1.1 }}
         >
           <a href="#contact" className="ae-btn-primary">Book Your Detail</a>

@@ -28,8 +28,8 @@ export default function InteractiveTransformation() {
             <span className="ae-eyebrow-text">Interactive Reveal</span>
             <div className="ae-eyebrow-line" />
           </motion.div>
-          <motion.h2 className="ae-title" style={{ fontSize: 'clamp(40px, 5vw, 64px)' }} initial={{ opacity: 0, y: 40 }} animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 40 }} transition={{ duration: 0.8, delay: 0.2 }}>
-            CERAMIC <span className="gold">TRANSFORMATION</span>
+          <motion.h2 className="ae-title" style={{ fontSize: 'clamp(32px, 8vw, 64px)', wordBreak: 'break-word', lineHeight: 1.2 }} initial={{ opacity: 0, y: 40 }} animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 40 }} transition={{ duration: 0.8, delay: 0.2 }}>
+            CERAMIC <br className="mobile-only" /><span className="gold">TRANSFORMATION</span>
           </motion.h2>
           <motion.p style={{ color: 'var(--gray)', marginTop: 24, fontSize: 14, letterSpacing: '0.1em', textTransform: 'uppercase' }} initial={{ opacity: 0 }} animate={{ opacity: isInView ? 1 : 0 }} transition={{ delay: 0.6 }}>
             Hover to reveal the Auto Elevate finish
@@ -54,14 +54,13 @@ export default function InteractiveTransformation() {
             borderRadius: '24px',
             overflow: 'hidden',
             cursor: 'crosshair',
-            boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
-            border: '1px solid var(--text-primary)'
+            boxShadow: '0 30px 60px rgba(0,0,0,0.8)'
           }}
         >
           {/* BOTTOM LAYER: "Before" State (Grayscale, low contrast) */}
           <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
             <img 
-              src="/images/after_paint.png" 
+              src="/images/hilux_front.png" 
               alt="Vehicle Before" 
               style={{ 
                 width: '100%', 
@@ -87,13 +86,13 @@ export default function InteractiveTransformation() {
             transition={{ type: 'tween', ease: 'linear', duration: 0.1 }}
           >
             <img 
-              src="/images/after_paint.png" 
+              src="/images/hilux_front.png" 
               alt="Vehicle After" 
               style={{ 
                 width: '100%', 
                 height: '100%', 
                 objectFit: 'cover',
-                filter: 'contrast(1.1) brightness(1.1) saturate(1.2)' // Extra pop for the reveal
+                filter: 'contrast(1.4) brightness(1.25) saturate(1.4)' // Extra pop for the reveal (Super Shiny)
               }} 
             />
           </motion.div>
@@ -110,8 +109,8 @@ export default function InteractiveTransformation() {
               width: isHovered ? '50vh' : '0px',
               height: isHovered ? '50vh' : '0px',
               borderRadius: '50%',
-              border: '1px solid rgba(212,175,55,0.3)',
-              boxShadow: 'inset 0 0 40px rgba(212,175,55,0.1), 0 0 20px rgba(212,175,55,0.2)',
+              border: '1px solid rgba(212,175,55,0.4)',
+              boxShadow: 'inset 0 0 60px rgba(212,175,55,0.2), 0 0 40px rgba(212,175,55,0.4)',
               pointerEvents: 'none',
               opacity: isHovered ? 1 : 0
             }}

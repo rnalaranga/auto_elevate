@@ -55,13 +55,13 @@ export default function HomePage() {
         <About />
         <ModelShowcase />
         <Services />
-        <Calculator />
         <WhyChooseUs />
         <Process />
         <InteractiveTransformation />
         <Gallery />
         <VideoShowcase />
         <Testimonials />
+        <Calculator />
         <CTA />
         <Contact />
         <Footer />

@@ -111,6 +111,12 @@ img, video { display: block; max-width: 100%; }
 }
 .ae-title .gold { color: var(--gold); }
 
+/* Utility */
+.mobile-only { display: block; }
+@media (min-width: 768px) {
+  .mobile-only { display: none; }
+}
+
 /* ─── GRID ─── */
 .ae-grid {
   display: grid;
@@ -118,7 +124,7 @@ img, video { display: block; max-width: 100%; }
 }
 .ae-grid-2 { grid-template-columns: 1fr; }
 .ae-grid-3 { grid-template-columns: 1fr; }
-.ae-grid-4 { grid-template-columns: 1fr 1fr; }
+.ae-grid-4 { grid-template-columns: 1fr; } /* Fixed from 1fr 1fr on mobile */
 .ae-grid-5 { grid-template-columns: 1fr; }
 
 @media (min-width: 768px) {
@@ -138,14 +144,12 @@ img, video { display: block; max-width: 100%; }
 .ae-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border);
   background: var(--dark);
   border-radius: 16px;
   overflow: hidden;
-  transition: border-color 0.3s, background 0.3s;
+  transition: background 0.3s;
 }
 .ae-card:hover {
-  border-color: rgba(212, 175, 55, 0.3);
   background: var(--dark2);
 }
 .ae-card-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
@@ -671,14 +675,16 @@ img, video { display: block; max-width: 100%; }
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(ellipse at center, transparent 20%, var(--bg-primary) 120%);
+  /* Darken the left side heavily for text readability, fade out to the right for the car */
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
   pointer-events: none;
 }
 .ae-hero-fade {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--bg-primary) 60%, transparent), transparent 40%, color-mix(in srgb, var(--bg-primary) 90%, transparent) 100%);
+  /* Simple top and bottom fade to blend into the rest of the site */
+  background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 15%, transparent 85%, var(--bg-primary) 100%);
   pointer-events: none;
 }
 .ae-hero-content {
@@ -686,11 +692,11 @@ img, video { display: block; max-width: 100%; }
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 24px;
+  align-items: flex-start; /* Changed to left-aligned */
+  text-align: left;
+  padding: 0 40px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px; /* Wider container for split layout */
 }
 .ae-hero-word {
   font-family: var(--font-heading);
@@ -717,7 +723,7 @@ img, video { display: block; max-width: 100%; }
 .ae-hero-btns {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Left aligned buttons */
   gap: 16px;
   margin-top: 48px;
 }

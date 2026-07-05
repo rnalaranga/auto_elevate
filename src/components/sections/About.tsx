@@ -19,7 +19,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" ref={sectionRef} className="ae-section" style={{ background: 'var(--bg-secondary)', position: 'relative', overflow: 'hidden' }}>
+    <section id="about" ref={sectionRef} className="ae-section" style={{ background: 'var(--bg-secondary)', position: 'relative', overflow: 'hidden', paddingTop: 140 }}>
       {/* Background accent */}
       <div style={{ position: 'absolute', right: 0, top: 0, width: '100%', height: '100%', opacity: 0.15, background: 'radial-gradient(circle at 70% 30%, rgba(212,175,55,0.2) 0%, transparent 50%)', pointerEvents: 'none' }} />
 
@@ -82,7 +82,7 @@ export default function About() {
               We've worked on everything from daily drivers to priceless hypercars. Each vehicle receives the same uncompromising attention to detail and white-glove service.
             </motion.p>
 
-            <motion.div style={{ display: 'flex', gap: 32, marginTop: 24, paddingTop: 32, borderTop: '1px solid var(--text-primary)' }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.6 }}>
+            <motion.div style={{ display: 'flex', gap: 32, marginTop: 24, paddingTop: 32, borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.6 }}>
               {ABOUT_STATS.map((stat, i) => (
                 <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 8, borderLeft: i > 0 ? '1px solid rgba(212,175,55,0.2)' : 'none', paddingLeft: i > 0 ? 24 : 0 }}>
                   <span style={{ fontFamily: 'var(--font-heading)', fontSize: 32, color: 'var(--gold)', lineHeight: 1 }}>{stat.value}</span>

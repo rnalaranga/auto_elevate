@@ -99,6 +99,7 @@ export default function ModelShowcase() {
 
         {/* Floating Hint */}
         <motion.div 
+          className="hover-indicator"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
           transition={{ delay: 1 }}
@@ -107,7 +108,6 @@ export default function ModelShowcase() {
             bottom: 60, 
             left: '50%', 
             transform: 'translateX(-50%)',
-            display: 'flex',
             alignItems: 'center',
             gap: 12,
             background: 'rgba(20,20,20,0.6)',
@@ -215,12 +215,12 @@ export default function ModelShowcase() {
         .car-container {
           position: relative;
           width: 100%;
-          height: 35vh; /* Mobile height */
+          height: 45vh; /* Increased height to prevent clipping */
           display: flex;
           align-items: center;
           justify-content: center;
           z-index: 1;
-          margin-bottom: 40px;
+          margin-bottom: 20px;
         }
 
         .car-image {
@@ -231,15 +231,19 @@ export default function ModelShowcase() {
           mix-blend-mode: screen; 
           transform: scale(1.4);
           filter: contrast(1.2) brightness(0.9);
-          -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
-          mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
+          -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 75%, transparent 100%);
+          mask-image: radial-gradient(ellipse at 50% 50%, black 75%, transparent 100%);
+        }
+
+        .hover-indicator {
+          display: none; /* Hide hover indicator on mobile completely */
         }
 
         .hotspots-container {
           position: relative;
           width: 100%;
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr; /* 1 column on mobile to prevent squashing */
           gap: 16px;
           z-index: 5;
         }
@@ -251,7 +255,6 @@ export default function ModelShowcase() {
           align-items: flex-start;
           gap: 8px;
           background: rgba(10,10,10,0.8);
-          border: 1px solid rgba(212,175,55,0.3);
           border-radius: 12px;
           padding: 16px;
         }
@@ -316,6 +319,10 @@ export default function ModelShowcase() {
           .car-image {
             width: 100%;
             transform: scale(1.6); /* Reduced from 1.9 to fit better */
+          }
+
+          .hover-indicator {
+            display: flex;
           }
 
           .hotspots-container {
