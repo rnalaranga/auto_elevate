@@ -11,14 +11,29 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} id="hero" className="ae-hero">
-      <div className="ae-hero-canvas">
-        <motion.img 
-          src="/images/lc300.png" 
-          alt="Toyota LC 300 Detail"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', transformOrigin: 'center', y }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-        />
+      <div className="ae-hero-canvas" style={{ display: 'flex', alignItems: 'center', justifyItems: 'center', backgroundColor: '#000' }}>
+        <motion.div
+          style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          <motion.img 
+            src="/images/lc300.png" 
+            alt="Toyota LC 300 Detail"
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              maxWidth: '1800px',
+              objectFit: 'contain', 
+              mixBlendMode: 'screen',
+              filter: 'contrast(1.3) brightness(0.8)',
+              y 
+            }}
+            animate={{ scale: [1, 1.05, 1], y: [0, -15, 0] }}
+            transition={{ duration: 15, ease: "easeInOut", repeat: Infinity }}
+          />
+        </motion.div>
       </div>
       <div className="ae-hero-vignette" />
       <div className="ae-hero-fade" />

@@ -175,53 +175,30 @@ export default function ModelShowcase() {
       <style>{`
         .model-showcase-section {
           position: relative;
-          height: 80vh;
-          min-height: 600px;
+          min-height: 100vh;
           background: var(--bg-primary);
           overflow: hidden;
           display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: center;
+          padding: 80px 20px 40px;
           border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .car-container {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1;
-          padding-top: 220px; /* Push massively scaled car further down away from topic */
-        }
-
-        .car-image {
-          width: 100%;
-          max-width: 1600px;
-          height: 100%;
-          object-fit: contain;
-          mix-blend-mode: lighten;
-          transform: scale(1.7);
-          
-          /* Minor tweak for the black levels */
-          filter: contrast(1.2) brightness(0.9);
-          
-          /* Mask out the edges to completely eliminate the box appearance */
-          -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
-          mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
-        }
-
         .model-header {
-          position: absolute;
-          top: 40px;
-          left: 0;
-          right: 0;
+          position: relative;
           z-index: 10;
+          width: 100%;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 40px;
         }
 
         .model-header-title {
           font-family: var(--font-heading);
-          font-size: clamp(28px, 6vw, 64px);
+          font-size: clamp(28px, 8vw, 64px);
           color: #FFF;
           margin: 0;
           line-height: 1.1;
@@ -231,66 +208,60 @@ export default function ModelShowcase() {
           color: #888;
           margin-top: 12px;
           max-width: 400px;
-          font-size: 13px;
+          font-size: 14px;
           line-height: 1.5;
-          position: relative;
-          z-index: 20;
         }
 
-        /* Hotspots Container */
+        .car-container {
+          position: relative;
+          width: 100%;
+          height: 35vh; /* Mobile height */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1;
+          margin-bottom: 40px;
+        }
+
+        .car-image {
+          width: 100%;
+          max-width: 800px;
+          height: 100%;
+          object-fit: contain;
+          mix-blend-mode: screen; 
+          transform: scale(1.4);
+          filter: contrast(1.2) brightness(0.9);
+          -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
+          mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
+        }
+
         .hotspots-container {
-          position: absolute;
-          inset: 0;
+          position: relative;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
           z-index: 5;
-          pointer-events: none;
         }
 
         .hotspot {
-          position: absolute;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          transform: scale(0.85);
-        }
-
-        .hotspot.top-left { top: 20%; left: 0%; }
-        .hotspot.bottom-left { bottom: 20%; left: 0%; }
-        .hotspot.top-right { top: 25%; right: 0%; }
-        .hotspot.bottom-right { bottom: 25%; right: 0%; }
-
-        .hotspot-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: var(--gold);
-          box-shadow: 0 0 15px var(--gold);
           position: relative;
-          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          background: rgba(10,10,10,0.8);
+          border: 1px solid rgba(212,175,55,0.3);
+          border-radius: 12px;
+          padding: 16px;
         }
 
-        .hotspot-dot::after {
-          content: '';
-          position: absolute;
-          inset: -6px;
-          border: 1px solid rgba(212,175,55,0.5);
-          border-radius: 50%;
-          animation: pulse 2s infinite;
+        /* Hide the connecting lines/dots on mobile since it's a grid */
+        .hotspot-dot, .hotspot-line {
+          display: none;
         }
-
-        .hotspot-line {
-          height: 1px;
-          width: 24px;
-          flex-shrink: 0;
-        }
-        .hotspot-line.left { background: linear-gradient(90deg, rgba(212,175,55,0.5), transparent); }
-        .hotspot-line.right { background: linear-gradient(270deg, rgba(212,175,55,0.5), transparent); }
 
         .hotspot-content {
-          background: rgba(10,10,10,0.8);
-          backdrop-filter: blur(8px);
-          border: 1px solid rgba(212,175,55,0.3);
-          padding: 8px 12px;
-          border-radius: 8px;
           display: flex;
           flex-direction: column;
         }
@@ -315,10 +286,18 @@ export default function ModelShowcase() {
           .model-showcase-section {
             height: 100vh;
             min-height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
           }
           
           .model-header {
+            position: absolute;
             top: 60px;
+            left: 0;
+            right: 0;
+            margin-bottom: 0;
           }
 
           .model-header-desc {
@@ -326,8 +305,47 @@ export default function ModelShowcase() {
             max-width: 500px;
           }
 
+          .car-container {
+            position: absolute;
+            inset: 0;
+            height: auto;
+            margin-bottom: 0;
+            padding-top: 150px;
+          }
+
+          .car-image {
+            width: 100%;
+            transform: scale(1.6); /* Reduced from 1.9 to fit better */
+          }
+
+          .hotspots-container {
+            position: absolute;
+            inset: 0;
+            display: block;
+            pointer-events: none;
+          }
+
           .hotspot {
+            position: absolute;
             transform: scale(1);
+            background: transparent;
+            border: none;
+            padding: 0;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+          }
+
+          .hotspot-dot, .hotspot-line {
+            display: block;
+          }
+
+          .hotspot-content {
+            background: rgba(10,10,10,0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212,175,55,0.3);
+            padding: 8px 12px;
+            border-radius: 8px;
           }
 
           .hotspot.top-left { top: 25%; left: 5%; }
@@ -340,11 +358,6 @@ export default function ModelShowcase() {
           .hotspot-desc { font-size: 12px; }
           .hotspot-dot { width: 12px; height: 12px; }
           .hotspot-dot::after { inset: -8px; }
-          
-          .car-image {
-            width: 100%;
-            transform: scale(1.9); /* Absolutely massive on desktop */
-          }
         }
 
         @keyframes pulse {
