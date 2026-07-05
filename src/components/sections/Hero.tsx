@@ -12,12 +12,9 @@ export default function Hero() {
   return (
     <section ref={sectionRef} id="hero" className="ae-hero">
       <div className="ae-hero-canvas">
-        <motion.video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          src="/videos/hero_cinematic.mp4" 
+        <motion.img 
+          src="/images/lc300.png" 
+          alt="Toyota LC 300 Detail"
           style={{ width: '100%', height: '100%', objectFit: 'cover', transformOrigin: 'center', y }}
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 30, ease: "linear", repeat: Infinity }}

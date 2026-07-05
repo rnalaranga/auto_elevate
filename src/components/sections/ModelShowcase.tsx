@@ -64,23 +64,25 @@ export default function ModelShowcase() {
 
         {/* Interactive 2D Car Image with Parallax */}
         <div className="car-container">
-          <motion.img 
-            src="/images/raize_studio.png" 
-            alt="Toyota Raize Showcase"
-            className="car-image"
+          <motion.div
+            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             animate={{
               x: mousePosition.x * -40,
               y: mousePosition.y * -40,
-              scale: isInView ? 1 : 0.95,
               opacity: isInView ? 1 : 0
             }}
             transition={{
               x: { type: 'spring', stiffness: 50, damping: 20 },
               y: { type: 'spring', stiffness: 50, damping: 20 },
-              scale: { duration: 1.5, ease: "easeOut" },
               opacity: { duration: 1 }
             }}
-          />
+          >
+            <img 
+              src="/images/raize_studio.png" 
+              alt="Toyota Raize Showcase"
+              className="car-image"
+            />
+          </motion.div>
           
           {/* Floor Reflection Gradient */}
           <div style={{
@@ -190,7 +192,7 @@ export default function ModelShowcase() {
           align-items: center;
           justify-content: center;
           z-index: 1;
-          padding-top: 80px; /* Push car down so it doesn't hit the centered text */
+          padding-top: 220px; /* Push massively scaled car further down away from topic */
         }
 
         .car-image {
@@ -199,7 +201,14 @@ export default function ModelShowcase() {
           height: 100%;
           object-fit: contain;
           mix-blend-mode: lighten;
-          transform: scale(1.35); /* Made even bigger */
+          transform: scale(1.7);
+          
+          /* Minor tweak for the black levels */
+          filter: contrast(1.2) brightness(0.9);
+          
+          /* Mask out the edges to completely eliminate the box appearance */
+          -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
+          mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 70%);
         }
 
         .model-header {
@@ -334,6 +343,7 @@ export default function ModelShowcase() {
           
           .car-image {
             width: 100%;
+            transform: scale(1.9); /* Absolutely massive on desktop */
           }
         }
 
